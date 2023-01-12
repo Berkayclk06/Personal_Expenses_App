@@ -17,11 +17,16 @@ class MyHomePage extends StatelessWidget {
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
+  void startAddNewTransaction(BuildContext ctx) {
+    // showModalBottomSheet(context: ctx, builder: (bCtx) {})
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Flutter App'),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -38,6 +43,11 @@ class MyHomePage extends StatelessWidget {
               ),
               UserTransactions()
             ]),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
     );
   }
