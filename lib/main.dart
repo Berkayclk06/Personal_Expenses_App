@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import './widgets/chart.dart';
 import './widgets/transaction_list.dart';
@@ -100,6 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('build() MyHomePageState');
     final mediaQuery = MediaQuery.of(
         context); // We use same thing but it doesn't recreate that object. More efficient.
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
@@ -135,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: TransactionList(_userTransactions, _deleteTransaction));
 
     final pageBody = SafeArea(
-      // It make sure that everything is positioned within the boundaries.
+      // Widget make sure that everything is positioned within the boundaries.
       child: SingleChildScrollView(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

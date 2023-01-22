@@ -5,10 +5,15 @@ class ChartBar extends StatelessWidget {
   final double spendingAmount;
   final double spendingPctOfTotal;
 
-  ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
+  const ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
+
+  // For const: "Whenever you're creating an instance of this ChartBar class, this instance will
+  // be unchangeable because you won't be able to then access this instance with the dot notation
+  // and change the label after this object has been created, the you can mark this as const."
 
   @override
   Widget build(BuildContext context) {
+    print('build() ChartBar');
     return LayoutBuilder(
       builder: (ctx, constrains) {
         return Column(
