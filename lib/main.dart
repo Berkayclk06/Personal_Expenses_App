@@ -144,13 +144,8 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
   }
 
-  @override
-  Widget build(BuildContext context) {
-    print('build() MyHomePageState');
-    final mediaQuery = MediaQuery.of(
-        context); // We use same thing but it doesn't recreate that object. More efficient.
-    final isLandscape = mediaQuery.orientation == Orientation.landscape;
-    final PreferredSizeWidget appBar = Platform.isIOS
+  Widget _buildAppBar() {
+    return Platform.isIOS
         ? CupertinoNavigationBar(
             middle: Text('Personal Expenses',
                 style: TextStyle(fontFamily: 'Open Sans')),
@@ -173,6 +168,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: Icon(Icons.add)),
             ],
           );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print('build() MyHomePageState');
+    final mediaQuery = MediaQuery.of(
+        context); // We use same thing but it doesn't recreate that object. More efficient.
+    final isLandscape = mediaQuery.orientation == Orientation.landscape;
+    final PreferredSizeWidget appBar = _buildAppBar();
 
     final txListWidget = Container(
         height: (mediaQuery.size.height -
